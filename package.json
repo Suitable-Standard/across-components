@@ -24,10 +24,10 @@
   ],
   "scripts": {
     "build": "stencil build --prod --docs",
-    "build:demo": "cd ./demo/ && rm -rf node_modules && npm i && npm run build",
+    "build:website": "cd ./website/ && rm -rf node_modules && npm i && npm run build",
     "serve": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
-    "deploy": "git submodule update && npm run build:demo && gh-pages -d ./demo/src/.vuepress/dist",
+    "deploy": "git submodule update && npm run build:website && gh-pages -d ./website/src/.vuepress/dist",
     "prettier": "npx prettier --write ./src"
   },
   "devDependencies": {
@@ -42,6 +42,7 @@
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "gh-pages": "^2.2.0",
     "jest": "26.0.1",
     "jest-cli": "26.0.1",
     "prettier": "2.2.1",
