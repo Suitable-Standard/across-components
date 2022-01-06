@@ -4,7 +4,7 @@
 
 # Useage
 
-- In Vanilla JS:
+- In vanilla js:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@cosmosreverse/cosmos@latest/dist/cosmos-reverse/cosmos-reverse.js"></script>
