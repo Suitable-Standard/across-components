@@ -1,0 +1,1 @@
+import{r as s,h as e}from"./index-e95e8ec8.js";const c=class{constructor(e){s(this,e)}render(){return e("div",null,e("span",{class:"c"},"select ddsdsdsdds"))}};c.style=".c{color:red}";export{c as cosmos_select}
