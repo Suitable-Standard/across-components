@@ -1,1 +1,28 @@
-<!doctype html><html lang="en"><head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Timo Component Demo</title> <style>:root{--default-title-color:rgb(255, 0, 200)}</style> <link rel="modulepreload" href="/across-components/across-components/p-9234e7c3.js"><script type="module" src="/across-components/across-components/p-9234e7c3.js" data-stencil data-resources-url="/across-components/across-components/" data-stencil-namespace="cosmos-reverse"></script> <script nomodule="" src="/across-components/across-components/cosmos-reverse.js" data-stencil></script> </head> <body> <cosmos-select></cosmos-select> </body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timo Component Demo</title>
+  <link rel="stylesheet" href="/across-components/build/cosmos-reverse.css">
+  <script type="module" src="/across-components/build/cosmos-reverse.esm.js"></script>
+  <script nomodule="" src="/across-components/build/cosmos-reverse.js"></script>
+</head>
+
+<body>
+  <cosmos-select></cosmos-select>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      // auto-unregister service worker during dev mode
+      navigator.serviceWorker.getRegistration().then(function (registration) {
+        if (registration) {
+          registration.unregister().then(function () { location.reload(true) });
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
