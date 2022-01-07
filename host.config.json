@@ -2,7 +2,7 @@
   "hosting": {
     "headers": [
       {
-        "source": "/across-components/across-components/p-*",
+        "source": "/build/p-*",
         "headers": [
           {
             "key": "Cache-Control",
