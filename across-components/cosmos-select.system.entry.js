@@ -1,1 +1,0 @@
-System.register(["./index-1e97df26.system.js"],(function(e){"use strict";var t,s;return{setters:[function(e){t=e.r;s=e.h}],execute:function(){var n=".c{color:red}";var r=e("cosmos_select",function(){function e(e){t(this,e)}e.prototype.render=function(){return s("div",null,s("span",{class:"c"},"select ddsdsdsdds"))};return e}());r.style=n}}}));
