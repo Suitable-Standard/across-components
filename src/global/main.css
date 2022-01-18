@@ -1,0 +1,9 @@
+/* Reference from https://ant-design.gitee.io/docs/spec/colors-cn */
+body {
+  --cosmos-main-blue-active: #2f54eb;
+  --cosmos-main-blue-500: #597ef7;
+  --cosmos-main-blue-400: #85a5ff;
+  --cosmos-main-blue-300: #adc6ff;
+  --cosmos-main-blue-200: #d6e4ff;
+  --cosmos-main-blue-100: #f0f5ff;
+}

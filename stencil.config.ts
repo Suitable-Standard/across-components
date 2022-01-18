@@ -1,14 +1,14 @@
 import { Config } from '@stencil/core';
-// import { angularOutputTarget } from '@stencil/angular-output-target';
+import { sass } from '@stencil/sass';
 import { reactOutputTarget } from '@stencil/react-output-target';
-import { vueOutputTarget } from '@stencil/vue-output-target';
-// import { svelteOutputTarget } from '@stencil/svelte-output-target';
+// import { vueOutputTarget } from '@stencil/vue-output-target';
 
 const componentCorePackage = '@cosmosreverse/cosmos';
 
-// 编译为一个独立的项目中
-const parent = '../cosmosreverse';
-const directivesProxyFile = (name: string) => `${parent}/${name}/src/index.ts`;
+// 编译到外部 React 目录中
+// @todo: Vue以及其他框架编译目录
+const parent = '../build-source';
+const directivesProxyFile = (name: string) => `${parent}/${name}/index.ts`;
 
 export const config: Config = {
   // https://github.com/ionic-team/stencil/blob/master/src/declarations/stencil-public-compiler.ts
@@ -19,17 +19,23 @@ export const config: Config = {
   preamble: 'Built by CosmosReverse',
   hashedFileNameLength: 8,
 
-  globalStyle: 'src/global/variables.css',
+  globalStyle: 'src/global/main.css',
+
+  plugins: [sass()],
 
   extras: {
-    // We need the following for IE11 and old Edge:
+    // Support for IE11 and old Edge
     cssVarsShim: true,
     dynamicImportShim: true,
-    // We don’t use shadow DOM so this is not needed:
+    // Don't need show shadow DOM
     shadowDomShim: false,
-    // Setting the below option to “true” will actually break Safari 10 support:
+
+    /**
+     * - Safari 10支持使用<script type =“module”>，但是，它没有实现<script nomodule>。
+     * - 设置为TRUE时，由于其缺乏编制标准支持，运行时将为SAFARI 10进行补贴。默认为false。
+     */
     safari10: false,
-    // This is to tackle an Angular specific performance issue:
+    // For fix a Angular specific performance issue:
     initializeNextTick: true,
     // Don’t need any of these so setting them to “false”:
     scriptDataOpts: false,
@@ -45,27 +51,21 @@ export const config: Config = {
   namespace: 'cosmos-reverse',
   taskQueue: 'async',
 
-  // proxies
   outputTargets: [
-    // angularOutputTarget({
-    //   componentCorePackage,
-    //   directivesProxyFile: directivesProxyFile('angular', `proxies/${entry}`),
-    //   valueAccessorConfigs: [],
-    // }),
     reactOutputTarget({
       componentCorePackage,
-      proxiesFile: directivesProxyFile('react'),
-      // includeDefineCustomElements: true
+      proxiesFile: `${parent}/src/index.ts`,
     }),
-    vueOutputTarget({
-      componentCorePackage,
-      proxiesFile: directivesProxyFile('vue'),
-      componentModels: [],
-    }),
+    // vueOutputTarget({
+    //   componentCorePackage,
+    //   proxiesFile: directivesProxyFile('vue'),
+    //   componentModels: [],
+    // }),
     // svelteOutputTarget({
     //   componentCorePackage,
     //   proxiesFile: directivesProxyFile('svelte'),
     // }),
+
     // custom element, no polifil
     {
       type: 'dist-custom-elements-bundle',
@@ -82,8 +82,8 @@ export const config: Config = {
     },
     {
       type: 'www',
-      // copy: [{ src: 'utilsExternal' }],
-      serviceWorker: null, // disable service workers
+      // disable service workers
+      serviceWorker: null,
     },
   ],
 };

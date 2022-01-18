@@ -1,7 +1,8 @@
 {
   "name": "@cosmosreverse/cosmos",
-  "version": "0.0.1",
-  "description": "Use stencil to build react component.",
+  "version": "0.0.2",
+  "private": false,
+  "description": "Building components for team standards based on Stencil.",
   "license": "MIT",
   "author": "tomoe",
   "keywords": [
@@ -22,19 +23,19 @@
     "dist/",
     "loader/"
   ],
+  "homepage": "https://suitable-standard.github.io/across-components",
   "scripts": {
-    "build": "stencil build --prod --docs",
-    "build:website": "cd ./website/ && rm -rf node_modules && npm i && npm run build",
-    "serve": "stencil build --dev --watch --serve",
+    "build": "rm -rf ./dist && rm -rf ../cosmosreverse && stencil build --prod --docs",
+    "dev": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
-    "deploy": "git submodule update && npm run build:website && gh-pages -d ./website/src/.vuepress/dist",
+    "deploy": "gh-pages -d www",
     "prettier": "npx prettier --write ./src"
   },
   "devDependencies": {
     "@stencil/core": "2.6.0",
     "@stencil/react-output-target": "0.0.9",
+    "@stencil/sass": "^1.5.2",
     "@stencil/store": "^1.3.0",
-    "@stencil/svelte-output-target": "0.0.3",
     "@stencil/vue-output-target": "^0.2.5",
     "@types/events": "^3.0.0",
     "@types/jest": "^26.0.20",
@@ -48,7 +49,6 @@
     "prettier": "2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "svelte": "^3.31.2",
     "typescript": "^3.9.7",
     "vue": "^3.0.5"
   }

@@ -6,47 +6,67 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface CosLogin {
+    interface CosmosButton {
+        /**
+          * Button shape
+          * @default 'normal'
+         */
+        "shape": 'round' | 'circle' | 'normal';
+        /**
+          * Button type
+          * @default normal
+         */
+        "type": 'primary' | 'text' | 'normal';
     }
-    interface TodoList {
+    interface CosmosSelect {
         "todoTitle": string;
     }
 }
 declare global {
-    interface HTMLCosLoginElement extends Components.CosLogin, HTMLStencilElement {
+    interface HTMLCosmosButtonElement extends Components.CosmosButton, HTMLStencilElement {
     }
-    var HTMLCosLoginElement: {
-        prototype: HTMLCosLoginElement;
-        new (): HTMLCosLoginElement;
+    var HTMLCosmosButtonElement: {
+        prototype: HTMLCosmosButtonElement;
+        new (): HTMLCosmosButtonElement;
     };
-    interface HTMLTodoListElement extends Components.TodoList, HTMLStencilElement {
+    interface HTMLCosmosSelectElement extends Components.CosmosSelect, HTMLStencilElement {
     }
-    var HTMLTodoListElement: {
-        prototype: HTMLTodoListElement;
-        new (): HTMLTodoListElement;
+    var HTMLCosmosSelectElement: {
+        prototype: HTMLCosmosSelectElement;
+        new (): HTMLCosmosSelectElement;
     };
     interface HTMLElementTagNameMap {
-        "cos-login": HTMLCosLoginElement;
-        "todo-list": HTMLTodoListElement;
+        "cosmos-button": HTMLCosmosButtonElement;
+        "cosmos-select": HTMLCosmosSelectElement;
     }
 }
 declare namespace LocalJSX {
-    interface CosLogin {
+    interface CosmosButton {
+        /**
+          * Button shape
+          * @default 'normal'
+         */
+        "shape"?: 'round' | 'circle' | 'normal';
+        /**
+          * Button type
+          * @default normal
+         */
+        "type"?: 'primary' | 'text' | 'normal';
     }
-    interface TodoList {
+    interface CosmosSelect {
         "todoTitle"?: string;
     }
     interface IntrinsicElements {
-        "cos-login": CosLogin;
-        "todo-list": TodoList;
+        "cosmos-button": CosmosButton;
+        "cosmos-select": CosmosSelect;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "cos-login": LocalJSX.CosLogin & JSXBase.HTMLAttributes<HTMLCosLoginElement>;
-            "todo-list": LocalJSX.TodoList & JSXBase.HTMLAttributes<HTMLTodoListElement>;
+            "cosmos-button": LocalJSX.CosmosButton & JSXBase.HTMLAttributes<HTMLCosmosButtonElement>;
+            "cosmos-select": LocalJSX.CosmosSelect & JSXBase.HTMLAttributes<HTMLCosmosSelectElement>;
         }
     }
 }

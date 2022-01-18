@@ -1,0 +1,85 @@
+cosmos-button {
+  .button {
+    position: relative;
+    border: 1px solid #dcdcde;
+    display: inline;
+    padding: 8px 10px;
+    border-radius: 8px;
+    user-select: none;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: background-color ease-in 120ms, opacity ease-in 120ms;
+    z-index: 99;
+
+    &:hover {
+      cursor: pointer;
+
+      .together-aniamtion {
+        opacity: 1;
+        transform: scale(1);
+
+        &::before {
+          inset: 0px;
+          position: absolute;
+          content: ' ';
+          background-color: rgba(87, 126, 255, 0.08);
+          opacity: 0;
+          transition: opacity 50ms ease-in 0s;
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: auto;
+    }
+  }
+
+  .bg-primary {
+    background-color: var(--cosmos-main-blue-500);
+    color: white;
+
+    &:hover .together-aniamtion {
+      background-color: rgba(10, 20, 54, 0.12);
+    }
+
+    &:active {
+      background-color: var(--cosmos-main-blue-active);
+    }
+  }
+
+  .bg-normal {
+    background-color: white;
+    border: 1px solid var(--cosmos-main-blue-500);
+    color: var(--cosmos-main-blue-500);
+
+    &:active {
+      background-color: var(--cosmos-main-blue-100);
+    }
+    &:disabled {
+      background-color: #f2f2f2;
+      color: #b0b1b7;
+    }
+  }
+
+  .bg-text {
+    background-color: unset;
+    border: none;
+
+    &:active {
+      background-color: var(--cosmos-main-blue-100);
+    }
+  }
+
+  .together-aniamtion {
+    content: ' ';
+    inset: 0px;
+    position: absolute;
+    // hover 通过 scale 放大后的背景色
+    background-color: rgba(87, 126, 255, 0.08);
+    border-radius: 4px;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 100ms ease-in 0s, transform 100ms ease-in 0s;
+  }
+}
