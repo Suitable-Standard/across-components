@@ -29,8 +29,7 @@
     "dev": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
     "deploy": "gh-pages -d www",
-    "prettier": "npx prettier --write ./src",
-    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx "
+    "prettier": "npx prettier --write ./src"
   },
   "devDependencies": {
     "@stencil/core": "2.6.0",
@@ -65,7 +64,6 @@
       "prettier --write"
     ],
     "*.ts?(x)": [
-      "npm run lint-staged:js",
       "prettier --parser=typescript --write"
     ]
   }
