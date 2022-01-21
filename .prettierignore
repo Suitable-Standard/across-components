@@ -1,0 +1,8 @@
+package.json
+yarn.lock
+
+./custom-element
+./dist
+./loader
+./node_modules
+./www
