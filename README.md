@@ -2,6 +2,11 @@
 
 - Use stencil to build a cross-platform components
 
+# Core Highlight
+
+- Useful and beautiful UX.
+- Cross-platform
+
 # Useage
 
 - In vanilla js:
@@ -22,7 +27,6 @@
 
 import { defineCustomElements } from '@cosmosreverse/cosmos/dist/loader';
 import { TodoList } from '@cosmosreverse/cosmos-react';
-import '@cosmosreverse/cosmos/dist/cosmos-reverse/compile-tailwindcss.css';
 
 defineCustomElements();
 const Example: FC = () => {

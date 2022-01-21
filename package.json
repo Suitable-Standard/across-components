@@ -50,6 +50,21 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "typescript": "^3.9.7",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "chalk": "^2.3.0",
+    "lint-staged": "^12.1.7",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verify-commit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
   }
 }
