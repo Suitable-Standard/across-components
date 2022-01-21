@@ -1,13 +1,13 @@
-# Cosmos-Reverse
+## Cosmos-Reverse
 
 - Use stencil to build a cross-platform components
 
-# Core Highlight
+## Core Highlight
 
 - Useful and beautiful UX.
 - Cross-platform
 
-# Useage
+## Usage
 
 - In vanilla js:
 

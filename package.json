@@ -55,6 +55,10 @@
     "lint-staged": "^12.1.7",
     "yorkie": "^2.0.0"
   },
+  "publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	},
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "node scripts/verify-commit.js"
